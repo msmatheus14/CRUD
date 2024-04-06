@@ -2,6 +2,10 @@ class ORM {
   constructor(){
        if (this.constructor === ORM){
        throw new Error("Essa classe não pode ser instaciada")
+
+  
+  
+         
       }
   }
 
