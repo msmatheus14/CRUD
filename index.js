@@ -1,11 +1,12 @@
-import Aluno from "./Aluno.js"
+import USUARIO from "./Usuario.js";
+import Generico from "./Generico.js";
 
-let alunos_IF_NovaAndradina = new Aluno()
+let user = new USUARIO();
+user.create(1, {nome: "João", idade: 30})
+user.create(1, {nome: "Maria", idade: 25})
 
-alunos_IF_NovaAndradina.create("Matheus Andrade", "Rua A", "12/02/1980", "987654321","454.646.456-52", "567464", "Informática")
-alunos_IF_NovaAndradina.create("Matheus Andrade", "Rua A", "12/02/1980", "987654321","454.646.456-52", "567464", "Informática")
-alunos_IF_NovaAndradina.create("Matheus Andrade", "Rua A", "12/02/1980", "987654321","454.646.456-52", "567464", "Informática")
-alunos_IF_NovaAndradina.create("Matheus Andrade", "Rua A", "12/02/1980", "987654321","454.646.456-52", "567464", "Informática")
+user.create(3, {nome: "Pedro", idade: 40})
+user.create(4, {nome: "Ana", idade: 35})
 
 
 
