@@ -1,3 +1,6 @@
+import ErrorValorVazio from "./ErrorValorVazio.js";
+
+
 class ORM {
   constructor() {
     if (new.target === ORM) {
@@ -6,6 +9,7 @@ class ORM {
   }
 
   #buscarElemento(id) {
+
     let val = null;
 
     this.vetor_elemento.map((n, i) => {
@@ -22,6 +26,10 @@ class ORM {
   }
 
   create(id, obj) {
+
+    if(id === null || id === undefined || obj === null || obj === undefined){
+      throw new ErrorValorVazio("ID e objetos não podem ser nulos ou indefinidos")
+    }
     if (typeof id !== "number") {
       throw new Error("ID deve ser um número");
     }
@@ -29,6 +37,7 @@ class ORM {
       throw new Error("obj deve ser um objeto");
     }
 
+    
     if (this.vetor_elemento.length == 0) {
       let obj2 = { id: id, ...obj };
 
@@ -55,6 +64,19 @@ class ORM {
   }
 
   update(id, obj_novo) {
+
+    if(id === null || id === undefined || obj === null || obj === undefined){
+      throw new Error("ID e objetos não podem ser nulos ou indefinidos")
+    }
+    if (typeof id !== "number") {
+      throw new Error("ID deve ser um número");
+    }
+
+    if(typeof(obj_novo) !== "object"){
+      throw new Error("obj_novo deve ser do tipo objeto")
+    }
+    
+    
     // Gabriel dessa forma ele só atualiza os atributos que o usuario especificar.
     let elemento = this.#buscarElemento(id);
 
@@ -66,6 +88,10 @@ class ORM {
   }
 
   delete(id) {
+
+    if(id === null || id === undefined){
+      throw new ErrorValorVazio('Id passado como parâmetro indefinido.')
+    }
     let elemento = this.#buscarElemento(id);
     this.vetor_elemento.splice(elemento, 1);
   }
