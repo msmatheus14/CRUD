@@ -1,5 +1,5 @@
 import ErrorValorVazio from "./ErrorValorVazio.js";
-
+import ErrorTipoId from "./ErrorTipoId.js"
 
 class ORM {
   constructor() {

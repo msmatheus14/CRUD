@@ -11,8 +11,6 @@ class Usuario extends ORM {
     }
   }
 
-  
-  
 }
 
 
