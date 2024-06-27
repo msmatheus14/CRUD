@@ -3,7 +3,7 @@
 # Atenção:
 ## Para importar a classe no NPM use: npm install crudclasses - Ao utilizar a classe em seu projeto use import para inicializa-la em seu projeto, conforme o exemplo: import ORM from 'crudclasses'.
 
-## altere seu package.json para type: Module
+## Incialize sua classe com 'npm init -y'altere seu package.json para type: Module
 
 ## Funcionalidades
 
