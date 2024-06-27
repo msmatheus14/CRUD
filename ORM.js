@@ -1,6 +1,6 @@
 import ErrorValorVazio from "./ErrorValorVazio.js";
 import ErrorTipoId from "./ErrorTipoId.js"
-import ErrorFalhaBusca from "./ErrorFalhaBusca.js";
+import ErrorFalhaExcluir from "./ErrorFalhaExcluir.js";
 
 class ORM {
 
@@ -52,7 +52,7 @@ class ORM {
       let verificao = false;
     
       //professor implementamos uma verificação em nosso create, onde o sistema não aceitara o cadastro de IDs duplicado.   
-      
+
       this.#vetor_elemento.map((n) => {
         if (n.id == id) {
           verificao = true;
@@ -71,7 +71,7 @@ class ORM {
 
   update(id, obj_novo) {
 
-    if(id === null || id === undefined || obj === null || obj === undefined){
+    if(id === null || id === undefined || obj_novo === null || obj_novo === undefined){
       throw new Error("ID e objetos não podem ser nulos ou indefinidos")
     }
     if (typeof id !== "number") {
@@ -82,15 +82,8 @@ class ORM {
       throw new Error("obj_novo deve ser do tipo objeto")
     }
     
+    let elemento = this.#buscarElemento(id);
     
-    
-    try{
-      let elemento = this.#buscarElemento(id);
-    }
-    catch{
-      throw new ErrorFalhaBusca('Erro interno, falha na busca do Objeto')
-    }
-
     let obj = this.#vetor_elemento[elemento];
 
     // Gabriel dessa forma ele só atualiza os atributos que o usuario especificar.
@@ -105,7 +98,12 @@ class ORM {
       throw new ErrorValorVazio('Id passado como parâmetro indefinido.')
     }
     let elemento = this.#buscarElemento(id);
-    this.#vetor_elemento.splice(elemento, 1);
+
+    try {this.#vetor_elemento.splice(elemento, 1);}
+    catch{
+      throw new ErrorFalhaExcluir('Falha ao excluir Elemento')
+    }
+    
   }
 
   // Exibe na tela todos os dados cadastrados.
