@@ -1,5 +1,6 @@
 import ErrorValorVazio from "./ErrorValorVazio.js";
 import ErrorTipoId from "./ErrorTipoId.js"
+import ErrorFalhaBusca from "./ErrorFalhaBusca.js";
 
 class ORM {
 
@@ -49,7 +50,9 @@ class ORM {
       return this.#vetor_elemento.push(obj2);
     } else if (this.#vetor_elemento.length > 0) {
       let verificao = false;
-
+    
+      //professor implementamos uma verificação em nosso create, onde o sistema não aceitara o cadastro de IDs duplicado.   
+      
       this.#vetor_elemento.map((n) => {
         if (n.id == id) {
           verificao = true;
@@ -80,11 +83,17 @@ class ORM {
     }
     
     
-    // Gabriel dessa forma ele só atualiza os atributos que o usuario especificar.
-    let elemento = this.#buscarElemento(id);
+    
+    try{
+      let elemento = this.#buscarElemento(id);
+    }
+    catch{
+      throw new ErrorFalhaBusca('Erro interno, falha na busca do Objeto')
+    }
 
     let obj = this.#vetor_elemento[elemento];
 
+    // Gabriel dessa forma ele só atualiza os atributos que o usuario especificar.
     obj = { ...obj, ...obj_novo };
 
     this.#vetor_elemento[elemento] = obj;
@@ -99,6 +108,7 @@ class ORM {
     this.#vetor_elemento.splice(elemento, 1);
   }
 
+  // Exibe na tela todos os dados cadastrados.
   get read() {
     console.log(this.#vetor_elemento);
   }

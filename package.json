@@ -1,6 +1,6 @@
 {
   "name": "crudclasses",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "module",
   "description": "Pacote ORM - Matheus Andrade e Gabriel Alves dos Santos",
   "main": "ORM.js",

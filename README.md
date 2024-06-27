@@ -5,13 +5,20 @@
 
 ## altere seu package.json para type: Module
 
-
-
 ## Funcionalidades
 
-create: objeto.create(id, {objeto com informações})
-update: objeto.update(id, {objeto com informções atualizadas})
-delete: objeto.delete(id)
-read: objeto.read
+### create: objeto.create(id, {objeto com informações})
+
+Realiza o cadastro de informações.
+O sistema não aceita ids duplicados.
+
+### update: objeto.update(id, {objeto com informções atualizadas})
+Realiza a atualização dos dados.
+### delete: objeto.delete(id)
+Teleta registro.
+
+### read: objeto.read
+
+Realiza a leitura de todos os cadastros e exibe na tela do usuário.
 
 
