@@ -1,7 +1,10 @@
 # ORM - Matheus Andrade e Gabriel Alves dos Santos.
 
 # Atenção:
-## Para utilizar O ORM em sua classe, certifica-se de ter um vetor chamado 'vetor_elemento = []' dentro de sua classe.
+## Para importar a classe no NPM use: npm install crudclasses - Ao utilizar a classe em seu projeto use import para inicializa-la em seu projeto, conforme o exemplo: import ORM from 'crudclasses'.
+
+## altere seu package.json para type: Module
+
 
 
 ## Funcionalidades
